@@ -33,25 +33,27 @@ class HttpHandler {
             Log.e(TAG, "Exception: " + e.message)
         }
 
-        return response
+        return response.toString()
     }
 
     private fun convertStreamToString(`is`: InputStream): String {
         val reader = BufferedReader(InputStreamReader(`is`))
         val sb = StringBuilder()
 
-        var line: String
+        val line=reader.readLine()
         try {
-            while ((line = reader.readLine()) != null) {
+            while (line != null) {
+                val line=reader.readLine()
                 sb.append(line).append('\n')
+
             }
         } catch (e: IOException) {
-          //  e.printStackTrace()
+            e.printStackTrace()
         } finally {
             try {
                 `is`.close()
             } catch (e: IOException) {
-             //   e.printStackTrace()
+               e.printStackTrace()
             }
 
         }

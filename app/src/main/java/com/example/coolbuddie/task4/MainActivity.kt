@@ -1,16 +1,16 @@
-package com.example.coolbuddie.task4
+    package com.example.coolbuddie.task4
 
 import android.app.ProgressDialog
 import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.widget.ListAdapter
+//import android.widget.ListAdapter
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import android.widget.Toast
 
-import org.json.JSONArray
+//import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private var pDialog: ProgressDialog? = null
     private var lv: ListView? = null
 
-    internal var contactList: ArrayList<HashMap<String, String>>
+    internal var contactList: ArrayList<HashMap<String, String>> = null!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,9 +58,9 @@ class MainActivity : AppCompatActivity() {
             // Making a request to url and getting response
             val jsonStr = sh.makeServiceCall(url)
 
-            Log.e(TAG, "Response from url: " + jsonStr!!)
+            Log.e(TAG, "Response from url: " + jsonStr)
 
-            if (jsonStr != null) {
+            if (true) {
                 try {
                     val jsonObj = JSONObject(jsonStr)
 
@@ -74,14 +74,14 @@ class MainActivity : AppCompatActivity() {
                         val id = c.getString("id")
                         val name = c.getString("name")
                         val email = c.getString("email")
-                        val address = c.getString("address")
-                        val gender = c.getString("gender")
+                        //val address = c.getString("address")
+                        //val gender = c.getString("gender")
 
                         // Phone node is JSON Object
                         val phone = c.getJSONObject("phone")
                         val mobile = phone.getString("mobile")
-                        val home = phone.getString("home")
-                        val office = phone.getString("office")
+                       // val home = phone.getString("home")
+                        //val office = phone.getString("office")
 
                         // tmp hash map for single contact
                         val contact = HashMap<String, String>()
