@@ -125,9 +125,17 @@ class MainActivity : AppCompatActivity() {
             // Dismiss the progress dialog
             if (pDialog!!.isShowing)
                 pDialog!!.dismiss()
-            /**
-             * Updating parsed JSON data into ListView
-             */
+            Gson gson = new Gson();
+                 List<ResponseDetail> countriesResponseList = new ArrayList<ResponseDetail>();
+                 Type collectionType = new TypeToken<List<ResponseDetail>>(){}.getType();
+                 try {
+                     countriesResponseList = gson.fromJson(value, collectionType);
+                 }
+                 catch (JsonSyntaxException e)
+                 {
+                     e.printStackTrace()
+                 }
+            
             val adapter = SimpleAdapter(
                     this@MainActivity, contactList,
                     R.layout.list_item, arrayOf("name", "email", "mobile"), intArrayOf(R.id.name, R.id.email, R.id.mobile))
