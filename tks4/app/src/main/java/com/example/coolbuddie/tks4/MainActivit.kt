@@ -15,9 +15,6 @@ import android.arch.core.R
 class MainActivity : AppCompatActivity() {
     private var resultText: TextView? = null
 
-    internal var s = String()
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,9 +24,9 @@ class MainActivity : AppCompatActivity() {
         val b = findViewById(R.id.mainGoButton) as Button
         b.setOnClickListener {
             Fuel.get("https://jsonplaceholder.typicode.com/users").responseString(object : Handler<String> {
-                override fun success(request: Request, response: Response, s: String) {
+                override fun success(request: Request, response: Response, value: String) {
                     Log.e("message", "success")
-                    resultText!!.text = s
+                    resultText!!.text = value
                 }
 
                 override fun failure(request: Request, response: Response, fuelError: FuelError) {
