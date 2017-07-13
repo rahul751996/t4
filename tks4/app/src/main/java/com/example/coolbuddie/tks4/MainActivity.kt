@@ -126,10 +126,10 @@ class MainActivity : AppCompatActivity() {
             if (pDialog!!.isShowing)
                 pDialog!!.dismiss()
             Gson gson = new Gson();
-                 List<ResponseDetail> countriesResponseList = new ArrayList<ResponseDetail>();
+                 List<ResponseDetail> ResponseList = new ArrayList<ResponseDetail>();
                  Type collectionType = new TypeToken<List<ResponseDetail>>(){}.getType();
                  try {
-                     countriesResponseList = gson.fromJson(value, collectionType);
+                        ResponseList = gson.fromJson(value, collectionType);
                  }
                  catch (JsonSyntaxException e)
                  {
