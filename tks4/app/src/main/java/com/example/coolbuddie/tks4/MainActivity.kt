@@ -78,8 +78,7 @@ class MainActivity : AppCompatActivity() {
                         val name = c.getString("name")
                         val email = c.getString("email")
 
-                        val phone = c.getJSONObject("phone")
-                        val mobile = phone.getString("mobile")
+                        
 
                         val contact = HashMap<String, String>()
 
@@ -87,8 +86,7 @@ class MainActivity : AppCompatActivity() {
                         contact.put("id", id)
                         contact.put("name", name)
                         contact.put("email", email)
-                        contact.put("mobile", mobile)
-
+                       
                         // adding contact to contact list
                         contactList.add(contact)
                     }
